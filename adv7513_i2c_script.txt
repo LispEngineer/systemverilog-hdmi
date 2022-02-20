@@ -1,0 +1,30 @@
+// Originally from Analog Devices AN-1270
+// ADV7513-Based Video Generators
+// Listing 4, ADV7513 Script
+// (Send this to the chip via I2C.)
+
+72 01 00 ; Set N Value(6144)
+72 02 18 ; Set N Value(6144)
+72 03 00 ; Set N Value(6144)
+72 15 00 ; Input 444 (RGB or YCrCb) with Separate Syncs
+72 16 61 ; 44.1kHz fs, YPrPb 444
+72 18 46 ; CSC disabled
+72 40 80 ; General Control Packet Enable
+72 41 10 ; Power Down control
+72 48 48 ; Reverse bus, Data right justified
+72 48 A8 ; Set Dither_mode - 12-to-10 bit
+72 4C 06 ; 12 bit Output
+72 55 00 ; Set RGB444 in AVinfo Frame
+72 55 08 ; Set active format Aspect
+72 96 20 ; HPD Interrupt clear
+72 98 03 ; ADI required Write
+72 98 02 ; ADI required Write
+72 9C 30 ; ADI required Write
+72 9D 61 ; Set clock divide
+72 A2 A4 ; ADI required Write
+72 43 A4 ; ADI required Write
+72 AF 16 ; Set HDMI Mode
+72 BA 60 ; No clock delay
+72 DE 9C ; ADI required write
+72 E4 60 ; ADI required Write
+72 FA 7D ; Nbr of times to search for good phase
